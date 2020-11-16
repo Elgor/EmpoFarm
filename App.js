@@ -6,27 +6,27 @@ import Input from './component/Input.js'
 import SortAndFilterIcon from './component/SortAndFilterIcon.js'
 import ProductTypeBtn from './component/Button.js'
 import SearchBar from './component/SearchBar.js'
-
+import MenuIcon from './component/MenuIcon.js'
 
 export default function App() {
-  const [isLoading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
+  // const [isLoading, setLoading] = useState(true);
+  // const [data, setData] = useState([]);
 
-  useEffect(() => {
-    fetch('https://empofarm-api.fanattics.tech/products/variants')
-      .then((response) => response.json())
-      .then((json) => setData(json.result))
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
-  }, []);
+  // useEffect(() => {
+  //   fetch('https://empofarm-api.fanattics.tech/products/variants')
+  //     .then((response) => response.json())
+  //     .then((json) => setData(json.result))
+  //     .catch((error) => console.error(error))
+  //     .finally(() => setLoading(false));
+  // }, []);
 
-  const Card = ({item, index}) => {
-    <View>
-      <Text>{item.productName}</Text>
-      <Text>Rp{item.empofarmPrice} /Unit</Text>
-      <Text>Stock: {item.draftStock}</Text>
-    </View>
-  }
+  // const Card = ({item, index}) => {
+  //   <View>
+  //     <Text>{item.productName}</Text>
+  //     <Text>Rp{item.empofarmPrice} /Unit</Text>
+  //     <Text>Stock: {item.draftStock}</Text>
+  //   </View>
+  
   return (
     <View style={styles.container}>
       <Header text="PRODUK" />
@@ -35,7 +35,7 @@ export default function App() {
         <SortAndFilterIcon />
       </View>
 
-      {/* <ScrollView 
+      <ScrollView 
       horizontal={true}
       automaticallyAdjustContentInsets={false}>
         <View style={styles.productBtnList}>
@@ -45,20 +45,22 @@ export default function App() {
           <ProductTypeBtn title="Liquid"/>
           <ProductTypeBtn title="Equipment"/>
         </View>
-      </ScrollView> */}
-
-      <Text>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Text>
-      <Image source={{uri: 'https://reactnative.dev/img/tiny_logo.png', width: 50, height: 50}}/>
-      <FlatList 
+      </ScrollView>
+      {/* <FlatList 
         data={data}
         keyExtractor={item => item.id}
         renderItem={({item}) => (
           <Card props={item}></Card>
         )}
       >
-
-      </FlatList>
-
+      </FlatList> */}
+      <View style={styles.bottomMenu}>
+        <MenuIcon imageUri="https://reactjs.org/logo-og.png" text="lalalala"/>
+        <MenuIcon imageUri="https://reactjs.org/logo-og.png" text="lalalala"/>
+        <MenuIcon imageUri="https://reactjs.org/logo-og.png" text="laa"/>
+        <MenuIcon imageUri="https://reactjs.org/logo-og.png" text="lalalala"/>
+        <MenuIcon imageUri="https://reactjs.org/logo-og.png" text="lalalala"/>
+      </View>
     </View>
     
   );
@@ -78,5 +80,8 @@ const styles = StyleSheet.create({
      flexDirection: 'row',
      marginHorizontal: 10,
      marginVertical: 14,
+   },
+   bottomMenu: {
+     flexDirection: 'row'
    }
 });

@@ -1,10 +1,11 @@
 import React from 'react'
 import {View, TouchableOpacity, Text, StyleSheet, Button} from 'react-native'
 
+const onPress = () =>{
 
+}
 
 const ProductTypeBtn = (props) =>{
-    let status
     return(
         <TouchableOpacity style={styles.button}>
             <View>
